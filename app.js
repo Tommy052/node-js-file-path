@@ -2,7 +2,9 @@ const fs = require('fs');
 const fsp = require('fs').promises;
 const path = require('path');
 
-const dir = '/Users/tpdevelop/Documents/dreamcoding/photo/test';
+var dirName = path.dirname(__dirname);
+const dir = `${dirName}/photo/test`;
+console.log(dir);
 //파일 경로 변경 함수
 function moveFile(dir, newname, file) {
   fsp
@@ -23,7 +25,6 @@ try {
 fs.readdir(dir, (err, files) => {
   files.forEach((file) => {
     console.log(file);
-    ß;
     if (path.extname(file) === '.mp4' || path.extname(file) === '.mov') {
       console.log('video');
       moveFile(dir, 'video', file);
